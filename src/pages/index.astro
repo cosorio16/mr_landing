@@ -1,11 +1,104 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+import Carrusel from "../components/Carrusel.astro";
+import ArrowIcon from "../icons/ArrowIcon.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import content from "../lib/content";
+import LocationIcon from "../icons/LocationIcon.astro";
+import MailIcon from "../icons/MailIcon.astro";
+import PhoneIcon from "../icons/PhoneIcon.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <main
+    class="items-center justify-center flex flex-col max-w-7xl m-auto relative text-carbon"
+  >
+    <Header />
+    <Hero />
+
+    <!-- carrusel de marcas -->
+    <Carrusel />
+
+    <!-- portfolio de servicios -->
+    <section class="flex flex-col w-full px-5 py-10 xl:py-20 gap-10">
+      <!-- title -->
+      <div class="w-full flex justify-between items-center">
+        <div class="text-carbon">
+          <h1 class="text-2xl text-xl:5xl font-bold uppercase">Portafolio de Servicios</h1>
+          <h2 class="text-xs xl:text-xl font-medium">
+            Soluciones Especializadas en Ingeniería y Telecomunicaciones
+          </h2>
+        </div>
+
+        <button
+          class="rotate-120 p-5 text-white bg-shappire aspect-square rounded-full hidden lg:inline"
+        >
+          <span class="">
+            <ArrowIcon sizes="30" />
+          </span>
+        </button>
+      </div>
+
+      <!-- cards -->
+      {
+        content.content[0].es.services.map((s) => (
+          <Card
+            image={s.image}
+            title={s.name}
+            description={s.description}
+            keywords={s.keywords}
+          />
+        ))
+      }
+    </section>
+
+    <!-- seccion de contacto -->
+
+    <section class="w-full px-5 flex flex-col gap-5 py-10">
+      <h1 class="text-5xl font-bold uppercase">Contacto</h1>
+      <div class="w-full h-120 ring-2 ring-shappire/50 rounded">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.34154712979!2d-74.83540864659143!3d10.994635110129758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42cfdf94e4039%3A0xe2bf128e173efc1c!2sCl.%2087%20%2342%2C%20Nte.%20Centro%20Historico%2C%20Barranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses-419!2sco!4v1749422766688!5m2!1ses-419!2sco"
+          class="w-full h-full"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="flex items-center flex-wrap justify-between gap-5">
+        <a
+          href="#"
+          class="flex items-center gap-3 bg-ice text-shappire w-full lg:text-xl font-medium px-16 py-3 rounded-full hover:bg-shappire hover:text-ice transition"
+        >
+          <span>
+            <LocationIcon sizes="30" />
+          </span>
+          Calle 87 No. 42A2 – 70</a
+        >
+        <a
+          href="#"
+          class="flex items-center gap-3 bg-ice text-shappire w-full lg:text-xl font-medium px-16 py-3 rounded-full hover:bg-shappire hover:text-ice transition"
+        >
+          <span>
+            <MailIcon sizes="30" />
+          </span>
+          comercial @martinezrojas.co</a
+        >
+        <a
+          href="#"
+          class="flex items-center gap-3 bg-ice text-shappire w-full lg:text-xl font-medium px-16 py-3 rounded-full hover:bg-shappire hover:text-ice transition"
+        >
+          <span>
+            <PhoneIcon sizes="30" />
+          </span>
+          3106490593</a
+        >
+      </div>
+    </section>
+  </main>
+  <Footer />
 </Layout>

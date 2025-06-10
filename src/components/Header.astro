@@ -1,0 +1,79 @@
+---
+import HomeIcon from "../icons/HomeIcon.astro";
+import HelmetIcon from "../icons/HelmetIcon.astro";
+import EngineIcon from "../icons/EngineIcon.astro";
+import MailIcon from "../icons/MailIcon.astro";
+import MenuIcon from "../icons/MenuIcon.astro";
+---
+
+<header
+  class="w-full fixed m-auto top-0 h-20 flex items-center justify-between px-5 max-w-7xl bg-white/80 z-10 backdrop:blur hover:bg-white transition"
+>
+  <!-- logo goes here -->
+  <!-- <img src="" alt="" /> -->
+
+  <div class="w-52 h-full flex items-center">
+    <span class="size-10 xl:size-16 bg-shappire rounded-full aspect-square p-1">
+    </span>
+  </div>
+
+  <!-- buttons nav -->
+  <nav class="hidden xl:inline">
+    <ul class="flex items-center gap-5 text-lg font-medium capitalize">
+      <li>
+        <a
+          href="#"
+          class="flex items-center gap-2 rounded px-6 py-1.5 hover:bg-shappire/70 hover:text-ice hover:translate-y-0.5 transition"
+        >
+          <span>
+            <HomeIcon sizes="25" />
+          </span>
+          Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="flex items-center gap-2 rounded px-6 py-1.5 hover:bg-shappire/70 hover:text-ice hover:translate-y-0.5 transition"
+        >
+          <span>
+            <HelmetIcon sizes="25" />
+          </span>
+          Proyectos</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="flex items-center gap-2 rounded px-6 py-1.5 hover:bg-shappire/70 hover:text-ice hover:translate-y-0.5 transition"
+        >
+          <span>
+            <EngineIcon sizes="25" />
+          </span>
+          Productos</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="flex items-center gap-2 rounded px-6 py-1.5 hover:bg-shappire/70 hover:text-ice hover:translate-y-0.5 transition"
+        >
+          <span>
+            <MailIcon sizes="25" />
+          </span>
+          Contacto</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <button
+    class="hidden xl:inline bg-shappire text-white px-5 py-3 font-medium rounded w-52"
+    >Solicitar Cotizacion</button
+  >
+
+  <button>
+    <span>
+      <MenuIcon sizes="40" />
+    </span>
+  </button>
+</header>

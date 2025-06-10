@@ -1,0 +1,35 @@
+---
+const { image, title, description, keywords } = Astro.props;
+---
+
+<div
+  class="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:h-96 ring-2 ring-carbon/10 items-center hover:ring-shappire transition-all duration-500"
+>
+  <div
+    style={`background-image: url(${image});`}
+    class="bg-no-repeat bg-center bg-cover relative h-52 lg:h-full w-full"
+  >
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-shappire/30 hover:bg-shappire/50 flex items-center justify-center text-2xl lg:text-4xl uppercase text-white font-bold text-center transition"
+    >
+      <h1>{title}</h1>
+    </div>
+  </div>
+  <div class="flex flex-col gap-5 p-5 hover:cursor-none">
+    {
+      description &&
+        description.map((d: String) => <p class="text-pretty">{d}</p>)
+    }
+
+    <div class="flex items-center flex-wrap justify-center gap-5">
+      {
+        keywords &&
+          keywords.map((k: String) => (
+            <span class="px-8 py-2 text-shappire font-medium bg-ice rounded-full">
+              {k}
+            </span>
+          ))
+      }
+    </div>
+  </div>
+</div>
